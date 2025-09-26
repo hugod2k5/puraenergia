@@ -1,187 +1,99 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pura Energia Radio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Fuente personalizada */
-        @font-face {
-            font-family: 'Energia';
-            src: url('tipo de letra/Energia.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: #1a3f7a;
-            background-image: url('fondo.jpg'); /* tu imagen */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        header {
-            text-align: center;
-            padding: 30px 20px;
-            background: rgba(0,0,0,0.5);
-            width: 100%;
-        }
-
-        header h1 {
-            font-family: 'Energia', sans-serif;
-            font-size: 4em;
-            color: #ffffff;
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
-            width: 100%;
-        }
-
-        /* Barra minimalista */
-        .player-bar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            background: #d00000; /* rojo, cámbialo a #1877F2 para azul */
-            padding: 15px 25px;
-            border-radius: 50px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-        }
-
-        .player-bar button {
-            background: #fff;
-            border: none;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.5em;
-            transition: 0.3s;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #d00000;
-        }
-
-        .player-bar button:hover {
-            transform: scale(1.1);
-        }
-
-        .player-bar span {
-            font-weight: bold;
-            font-size: 1.2em;
-            color: #fff;
-        }
-
-        input[type="range"] {
-            width: 120px;
-        }
-
-        /* Redes sociales */
-        .social {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-            gap: 20px;
-        }
-
-        .social a {
-            display: inline-block;
-            padding: 12px 25px;
-            border-radius: 10px;
-            font-weight: bold;
-            text-decoration: none;
-            color: #fff;
-            transition: 0.3s;
-        }
-
-        .social a.facebook { background: #1877F2; }
-        .social a.facebook:hover { background: #145dbf; }
-
-        .social a.whatsapp { background: #25D366; }
-        .social a.whatsapp:hover { background: #1da851; }
-
-        footer {
-            background: rgba(0,0,0,0.7);
-            text-align: center;
-            padding: 20px;
-            width: 100%;
-        }
-
-        @media (max-width: 600px) {
-            header h1 { font-size: 2.5em; }
-            .player-bar { flex-direction: column; gap: 15px; }
-            input[type="range"] { width: 100px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pura Energia Radio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+@font-face {
+    font-family: 'Energia';
+    src: url('tipo de letra/Energia.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family:'Roboto', sans-serif;
+    background:#1a3f7a;
+    background-image: url('fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color:#fff;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+header { text-align:center; padding:30px 20px; background:rgba(0,0,0,0.5); width:100%; }
+header h1 { font-family:'Energia', sans-serif; font-size:4em; color:#fff; }
+main { flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:40px 20px; width:100%; }
+.player-bar { display:flex; align-items:center; justify-content:center; gap:20px; background:#d00000; padding:15px 25px; border-radius:50px; box-shadow:0 8px 20px rgba(0,0,0,0.5); }
+.player-bar button { background:#fff; border:none; width:60px; height:60px; border-radius:50%; cursor:pointer; font-size:1.5em; transition:0.3s; display:flex; justify-content:center; align-items:center; color:#d00000; }
+.player-bar button:hover { transform:scale(1.1); }
+.player-bar span { font-weight:bold; font-size:1.2em; color:#fff; }
+input[type="range"] { width:120px; }
+.social { display:flex; justify-content:center; margin-top:30px; gap:20px; }
+.social a { display:inline-block; padding:12px 25px; border-radius:10px; font-weight:bold; text-decoration:none; color:#fff; transition:0.3s; }
+.social a.facebook { background:#1877F2; }
+.social a.facebook:hover { background:#145dbf; }
+.social a.whatsapp { background:#25D366; }
+.social a.whatsapp:hover { background:#1da851; }
+footer { background:rgba(0,0,0,0.7); text-align:center; padding:20px; width:100%; }
+@media (max-width:600px){ header h1{ font-size:2.5em; } .player-bar{ flex-direction:column; gap:15px; } input[type="range"]{ width:100px; } }
+</style>
 </head>
 <body>
 
 <header>
-    <h1>Pura Energia</h1>
+<h1>Pura Energia</h1>
 </header>
 
 <main>
-    <!-- Reproductor en barra -->
-    <section class="player-bar">
-        <button id="playBtn"><i class="fas fa-play"></i></button>
-        <span>Dale Play</span>
-        <input type="range" id="volume" min="0" max="1" step="0.01" value="0.7">
-    </section>
+<section class="player-bar">
+    <button id="playBtn"><i class="fas fa-play"></i></button>
+    <span>Dale Play</span>
+    <input type="range" id="volume" min="0" max="1" step="0.01" value="0.7">
+</section>
 
-    <audio id="radio" src="https://srv7.streamingradio.ar/8104/stream"></audio>
+<audio id="radio" src="http://uk19freenew.listen2myradio.com:36756/;" preload="none"></audio>
 
-    <div class="social">
-        <a href="https://www.facebook.com/victorhugo.showman" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
-        <a href="https://wa.me/0971229409" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    </div>
+<div class="social">
+    <a href="https://www.facebook.com/victorhugo.showman" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+    <a href="https://wa.me/595971229409" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+</div>
 </main>
 
 <footer>
-    <p>&copy; 2025 Pura Energía Radio. Todos los derechos reservados.</p>
+<p>&copy; 2025 Pura Energía Radio. Todos los derechos reservados.</p>
 </footer>
 
 <script>
-    const radio = document.getElementById('radio');
-    const playBtn = document.getElementById('playBtn');
-    const volumeSlider = document.getElementById('volume');
-    let isPlaying = false;
+const radio = document.getElementById('radio');
+const playBtn = document.getElementById('playBtn');
+const volumeSlider = document.getElementById('volume');
+let isPlaying = false;
 
-    playBtn.addEventListener('click', () => {
-        if (isPlaying) {
-            radio.pause();
-            playBtn.innerHTML = '<i class="fas fa-play"></i>';
-        } else {
-            radio.play();
-            playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-        }
-        isPlaying = !isPlaying;
-    });
+playBtn.addEventListener('click', () => {
+    if(isPlaying){
+        radio.pause();
+        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+    } else {
+        radio.play().catch(e => {
+            alert("El navegador bloqueó la reproducción automática. Hacé click en Play para escuchar.");
+        });
+        playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+    }
+    isPlaying = !isPlaying;
+});
 
-    volumeSlider.addEventListener('input', () => {
-        radio.volume = volumeSlider.value;
-    });
+volumeSlider.addEventListener('input', () => {
+    radio.volume = volumeSlider.value;
+});
 
-    radio.volume = 0.7;
+radio.volume = 0.7;
 </script>
 
 </body>
 </html>
-
