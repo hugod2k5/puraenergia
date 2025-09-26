@@ -66,9 +66,16 @@ footer { background:rgba(0,0,0,0.7); text-align:center; padding:20px; width:100%
 <script>
 // El botón de play abre la radio en nueva pestaña
 const playBtn = document.getElementById('playBtn');
+let isPlaying = false;
 
 playBtn.addEventListener('click', () => {
     window.open("http://uk19freenew.listen2myradio.com:36756/", "_blank");
+    if(!isPlaying){
+        playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+    } else {
+        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+    }
+    isPlaying = !isPlaying;
 });
 </script>
 
