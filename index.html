@@ -9,8 +9,6 @@
 @font-face {
     font-family: 'Energia';
     src: url('tipo de letra/Energia.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
@@ -40,8 +38,7 @@ main { flex:1; display:flex; flex-direction:column; justify-content:center; alig
 .social a.whatsapp { background:#25D366; }
 .social a.whatsapp:hover { background:#1da851; }
 footer { background:rgba(0,0,0,0.7); text-align:center; padding:20px; width:100%; }
-iframe.radio-player { border:none; width:300px; height:80px; }
-@media (max-width:600px){ header h1{ font-size:2.5em; } .player-bar{ flex-direction:column; gap:15px; } input[type="range"]{ width:100px; } iframe.radio-player{ width:100%; height:80px; } }
+@media (max-width:600px){ header h1{ font-size:2.5em; } .player-bar{ flex-direction:column; gap:15px; } }
 </style>
 </head>
 <body>
@@ -52,13 +49,12 @@ iframe.radio-player { border:none; width:300px; height:80px; }
 
 <main>
 <section class="player-bar">
-    <!-- Botón de Play/Pause solo para interfaz -->
     <button id="playBtn"><i class="fas fa-play"></i></button>
     <span>Escuchá en vivo</span>
 </section>
 
-<!-- Iframe del Web Player de Listen2MyRadio -->
-<iframe class="radio-player" src="https://listen2myradio.com/player/uk19freenew" allow="autoplay"></iframe>
+<!-- Botón que abre la radio en otra pestaña -->
+<a id="openRadio" href="http://uk19freenew.listen2myradio.com:36756/" target="_blank" style="display:none;"></a>
 
 <div class="social">
     <a href="https://www.facebook.com/victorhugo.showman" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
@@ -71,15 +67,17 @@ iframe.radio-player { border:none; width:300px; height:80px; }
 </footer>
 
 <script>
-// Solo efecto visual en tu botón de play/pause
+// El botón de play abre la radio en nueva pestaña
 const playBtn = document.getElementById('playBtn');
+const openRadio = document.getElementById('openRadio');
 let isPlaying = false;
 
 playBtn.addEventListener('click', () => {
-    if(isPlaying){
-        playBtn.innerHTML = '<i class="fas fa-play"></i>';
-    } else {
+    if(!isPlaying){
+        openRadio.click(); // abre la radio en otra pestaña
         playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+    } else {
+        playBtn.innerHTML = '<i class="fas fa-play"></i>';
     }
     isPlaying = !isPlaying;
 });
