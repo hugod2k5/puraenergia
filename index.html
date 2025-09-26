@@ -53,9 +53,6 @@ footer { background:rgba(0,0,0,0.7); text-align:center; padding:20px; width:100%
     <span>Escuchá en vivo</span>
 </section>
 
-<!-- Botón que abre la radio en otra pestaña -->
-<a id="openRadio" href="http://uk19freenew.listen2myradio.com:36756/" target="_blank" style="display:none;"></a>
-
 <div class="social">
     <a href="https://www.facebook.com/victorhugo.showman" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
     <a href="https://wa.me/595971229409" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
@@ -69,17 +66,9 @@ footer { background:rgba(0,0,0,0.7); text-align:center; padding:20px; width:100%
 <script>
 // El botón de play abre la radio en nueva pestaña
 const playBtn = document.getElementById('playBtn');
-const openRadio = document.getElementById('openRadio');
-let isPlaying = false;
 
 playBtn.addEventListener('click', () => {
-    if(!isPlaying){
-        openRadio.click(); // abre la radio en otra pestaña
-        playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-    } else {
-        playBtn.innerHTML = '<i class="fas fa-play"></i>';
-    }
-    isPlaying = !isPlaying;
+    window.open("http://uk19freenew.listen2myradio.com:36756/", "_blank");
 });
 </script>
 
